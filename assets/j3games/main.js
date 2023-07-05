@@ -1,0 +1,102 @@
+function loadGames() {
+  {
+    var gameNames = [
+    "Alloy",
+    "ATV Extreme",
+    "Americas Army",
+    "Batman",
+    "Beer Monster",
+    "Beetle Buggin",
+    "Bike Mania",
+    "bilhar",
+    "Bomberman",
+    "bomb jack",
+    "Bowman",
+    "Cable Capers",
+    "Car Park Challenge",
+    "Crossing Cup",
+    "Dogfight - The Great War",
+    "Donkey Kong Bananas",
+    "Dragon Ball Z",
+    "Dress Up",
+    "Elite Forces",
+    "Galan, the Armadillo Knigth",
+    "Gmax Skate",
+    "Goku Paint",
+    "gold miner2",
+    "gold miner",
+    "Gyro Ball",
+    "helicopter",
+    "Hit The Jackpot",
+    "Hunga Hatch",
+    "IQ Marathon",
+    "Mario Jet",
+    "Metal Slug",
+    "Mini Golf",
+    "moon lander",
+    "N2O Rush",
+    "pacman",
+    "panik",
+    "penguin_baseball",
+    "pipes",
+    "polar rescue",
+    "Red Beard",
+    "rooftop skate",
+    "Scooby Doo Castelo Fantasma",
+    "Scooby Doo fugindo do Fantasma",
+    "Shackle-Man",
+    "Sheepish",
+    "Shove It",
+    "sonic",
+    "Steppenwolf",
+    "Street Fighter",
+    "Stunt Mania",
+    "Suckaz",
+    "super mario flash 2.0",
+    "supreme extreme snowboarding",
+    "surfs up",
+    "Through The Machine",
+    "Tube Racer",
+    "Tuning",
+    "uphill rush",
+    "vanguard mercenary",
+    "zombie-terror",
+];
+
+
+var leftList = ['<div class="col-md-3"><div class="container">\n'];
+var centerList = ['<div class="col-md-1"><div class="container"><p class="container"></p></div></div>\n'];
+var rightList = ['<div class="col-md-3"><div class="container">\n'];
+
+    for (var i = 0; i < gameNames.length; i++) {
+      var gameName = gameNames[i];
+      var imageSrc = `jogos/${gameName}.gif`;
+      var swfLink = `jogos/${gameName}.swf`;
+    
+      if (i % 2 === 0) {
+        leftList.push(`<p class="container"><img src="${imageSrc}"><a href="${swfLink}"><span class="gameName">${gameName}</span></a></p>\n`);
+      } else {
+        rightList.push(`<p class="container"><img src="${imageSrc}"><a href="${swfLink}"><span class="gameName">${gameName}</span></a></p>\n`);
+      }
+    }
+    leftList.push("</div></div>\n")
+    rightList.push("</div></div>\n")
+    var html = leftList.concat(centerList).concat(rightList);
+    
+    $('#gameList').append(html.join(""));
+  }
+}
+
+
+function loadHeader() {
+
+}
+
+function loadFooter() {
+  $('#footer').load('roda_pe.html');
+}
+
+$(document).ready(function() {
+  loadGames()
+  loadFooter()
+});
