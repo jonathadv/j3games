@@ -64,9 +64,9 @@ function loadGames() {
 ];
 
 
-var leftList = ['<div class="col-md-3"><div class="container">\n'];
+var leftList = ['<div class="col-md-5"><div class="container">\n'];
 var centerList = ['<div class="col-md-1"><div class="container"><p class="container"></p></div></div>\n'];
-var rightList = ['<div class="col-md-3"><div class="container">\n'];
+var rightList = ['<div class="col-md-5"><div class="container">\n'];
 
     for (var i = 0; i < gameNames.length; i++) {
       var gameName = gameNames[i];
@@ -89,14 +89,37 @@ var rightList = ['<div class="col-md-3"><div class="container">\n'];
 
 
 function loadHeader() {
+  $('#header').load('partial/header.html');
 
+  var imgSrc = $('#title').attr('imgSrc');
+  var imgStyle = $('#title').attr('imgStyle');
+
+  $('#title').load('partial/title.html', function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success") {
+      if (imgSrc) {
+        $('#titleImg').attr('src', imgSrc);
+      }
+
+      if (imgStyle) {
+        $('#titleImg').attr('style', imgStyle);
+      }
+    }
+  });
+
+  
 }
 
 function loadFooter() {
-  $('#footer').load('roda_pe.html');
+  $('#footer').load('partial/footer.html');
+}
+
+function loadBackButton() {
+  $('#backButton').load('partial/backButton.html');
 }
 
 $(document).ready(function() {
-  loadGames()
+  loadHeader()
   loadFooter()
+  loadBackButton()
+  loadGames()
 });
