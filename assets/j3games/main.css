@@ -23,6 +23,19 @@
   margin: 0px;
 }
 
+.simpleBorder {
+  border: 1px solid;
+}
+
+.simpleBorder {
+  border: 1px solid;
+}
+
+.noSpaceLine {
+  padding: 0px;
+  margin: 0px;
+}
+
 .marquee {
     height: 200px; /* Adjust the height as needed */
     overflow: hidden;
