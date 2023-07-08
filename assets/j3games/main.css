@@ -10,3 +10,37 @@
 .footer {
     font-size: 13;
 }
+
+.creditTitle {
+  margin: 0px;
+  font-size: 14;
+  padding-top: 20px;
+  padding-bottom: 2px;
+}
+
+.creditContent {
+  padding: 0px;
+  margin: 0px;
+}
+
+.marquee {
+    height: 200px; /* Adjust the height as needed */
+    overflow: hidden;
+    position: center;
+  }
+  
+  .marquee-content {
+    text-align: center;
+    position: center;
+    top: 0;
+    animation: marquee-animation 20s linear infinite; /* Adjust duration as needed */
+  }
+  
+  @keyframes marquee-animation {
+    0% {
+      transform: translateY(200px);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
