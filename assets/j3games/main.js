@@ -8,6 +8,29 @@ const gameHelp = [
       { action: "Golpear", key: "D" },
     ]
   },
+  {
+    name: "Americas Army",
+    commands: [
+      { action: "Mover e Atirar", key: "Mouse " },
+    ]
+  },
+  {
+    name: "ATV Extreme",
+    commands: [
+      { action: "Movimentar o quadriciclo", key: "Setas do Teclado" },
+      { action: "Mudar de posição", key: "Enter" },
+    ]
+  },
+  {
+    name: "Batman",
+    commands: [
+      { action: "Mover o personagem", key: "Teclas de Direção" },
+      { action: "Pular e Planar", key: "Barra de espaço" },
+      { action: "Usar Batrang", key: "A" },
+      { action: "Socar", key: "S" },
+      { action: "Chutar", key: "D" },
+    ]
+  },
 ];
 
 function loadGames() {
@@ -130,8 +153,12 @@ function loadBackButton() {
 
 function loadGameHelp() {
   var html = [];
+  var gameNames = [];
+  
 
   gameHelp.forEach(item => {
+    gameNames.push(`<span><a href="#${item.name}">${item.name}</a>, </span>\n`)
+    
     html.push("<div>\n");
     html.push(`
     <h5 name="${item.name}" id="${item.name}">
@@ -142,11 +169,11 @@ function loadGameHelp() {
       html.push(`<p class="noSpaceLine">${cmd.action}: <b>${cmd.key}</b></p>\n`);
     });
     html.push("</div>\n")
-    html.push('<p align="center"><a href="#controles-de-jogos"><font size="5" face="arial" color="red">Voltar</font></a></p>')
+    html.push('<p align="center"><a href="#controles-de-jogos"><font size="5" face="arial" color="red">Topo</font></a></p>')
 
   });
 
-  $('#gameHelp').append(html.join(""));
+  $('#gameHelp').append(gameNames.join("") + html.join(""));
 }
 
 $(document).ready(function () {
