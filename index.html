@@ -13,16 +13,31 @@
    <link href="assets/j3games/main.css" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="assets/j3games/main.js"></script>
+   <script src="static/ruffle/ruffle.js"></script>
 </head>
 
 <body background="imagens/J3Games-fundo2.png">
    <div id="header"></div>
    <div id="title"></div>
+   <div class="container" style="width: 40%">
+      <div class="row justify-content-md-center border border-secondary gameBackground" id="gameContainer">
+      </div>
+   </div>
+
+   <div class="container">
+      <div class="row">
+          <div class="col"></div>
+          <div class="col">
+              <div class="container text-center p-3">
+                  <img src="" id="titleImg" style="width: 50%;">
+              </div>
+          </div>
+          <div class="col"></div>
+      </div>
+  </div>
 
    <div class="container" style="width: 40%">
-      <div class="row justify-content-md-center border border-secondary gameBackground" id="gameList">
-      </div>
-
+      <div class="row justify-content-md-center border border-secondary gameBackground p-2" id="gameList"></div>
       <div id="footer">
       </div>
    </div>
