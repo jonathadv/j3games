@@ -142,6 +142,10 @@ function loadHeader() {
 
   $('#title').load('partial/title.html', function (responseTxt, statusTxt, xhr) {
     if (statusTxt == "success") {
+      if (!imgSrc) {
+        $('#titleImg').remove()
+      }
+      
       if (imgSrc) {
         $('#titleImg').attr('src', imgSrc);
       }
