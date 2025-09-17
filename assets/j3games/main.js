@@ -73,6 +73,7 @@ function getGamesList() {
     "panik",
     "penguin_baseball",
     "pipes",
+    "Plants vs Zombies",
     "polar rescue",
     "Red Beard",
     "rooftop skate",
@@ -192,29 +193,20 @@ function loadGameHelp() {
   $('#gameHelp').append(gameNames.join("") + html.join(""));
 }
 
-function loadRufflePlayer() {
-  if (window.RufflePlayer) {
-    console.log("Loading RufflePlayer")
-    window.RufflePlayer = window.RufflePlayer || {};
+function loadGameInRufflePlayer(url) {
+  const oldObj = document.getElementById('gameObject');
+  const clone = oldObj.cloneNode(true);
+  clone.setAttribute('data', url);
 
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer("");
-    const container = document.getElementById("gameContainer");
-    container.appendChild(player);
-    window.curentRufflePlayer = player;
+  // keep <param name="movie"> in sync
+  const movieParam = clone.querySelector('param[name="movie"]');
+  if (movieParam) movieParam.setAttribute('value', url);
 
-    var firstGameUrl = getGameUrl(getGamesList()[0]);
-    player.ruffle().load(firstGameUrl);
-  }
-  else {
-    console.log("Not loading RufflePlayer.")
-  }
-
+  oldObj.replaceWith(clone); // mutation triggers Ruffle’s polyfill to reattach
 }
-
-function loadGameInRufflePlayer(gamePath) {
-  console.log("Loading game: " + gamePath)
-  window.curentRufflePlayer.ruffle().load(gamePath);
+  
+function loadRufflePlayer() {
+  loadGameInRufflePlayer(getGameUrl(getGamesList()[0]))
 }
 
 $(document).ready(function () {
